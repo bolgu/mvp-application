@@ -6,11 +6,11 @@ This is the source code for the Grails 3 - Step by Step Book. The presentations 
 The application is based on a multi project Gradle build so the application can be automatically built using Gradle - the build tool used by Grails 3. This application is available online and the deployment is done automatically to AWS cloud in a Continuous Deployment style using Jenkins on this location: http://application.eu-central-1.elasticbeanstalk.com
 
 There is a dependency of *mod-sandbox* in *web-sandbox*:
-We have to edited the *build.gradle* and added the dependency:
+We have edited the *build.gradle* and added the dependency:
 
     nano web-sandbox/build.gradle
     
-And was added before *dependencies* section:
+We added this before *dependencies* section:
 
     grails {
         plugins {
