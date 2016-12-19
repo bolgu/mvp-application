@@ -1,9 +1,26 @@
 # mvp-application
-MVP Grails 3 Sample Application
+
+## MVP Grails 3 Sample Application
 
 This is the source code for the Grails 3 - Step by Step Book sample application. The presentations site for this book is https://grailsthreebook.com. You can buy the book from https://leanpub.com/grails3book. You can read the sample chapter from https://leanpub.com/grails3book/read
 
 The application is based on a multi project Gradle build so the application can be automatically built using Gradle - the build tool used by Grails 3. This application is available online and the deployment is done automatically to AWS cloud in a Continuous Deployment style using Jenkins on this location: http://application.eu-central-1.elasticbeanstalk.com
+
+## Main applictions and plugins
+
+We structured our project in multiple applications and plugins, each having a clear responsability and a given [Grails 3 profile](http://docs.grails.org/latest/guide/profiles.html):
+
+| *Name*            | *Type*        | *Grails 3 profile* | *Description*
+|-------------------|
+| app-admin         | application   | web                | The admin portal application (for intranet) used for administration
+| app-web           | application   | angular2           | The web application exposed to the customers (for internet)
+| mod-domain        | plugin        | plugin             | A plugin with the application domain (domain services and entities)
+| mod-mobile        | plugin        | rest-api-plugin    | A plugin containing the REST API consumed by a mobile app
+| app-microservice  | application   | rest-api           | A miroservice exposing a REST API for used by the other applications
+
+The *mod-domain* plugin will be a dependency for all the applications because is the herth of the application. The *micro-search* microservice will be called by the others applications for some specific services using a REST API.
+
+## Sandbox application and plugin
 
 There is a dependency of *mod-sandbox* in *web-sandbox*:
 We have edited the *build.gradle* and added the dependency:
