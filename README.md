@@ -10,13 +10,13 @@ The application is based on a multi project Gradle build so the application can 
 
 We structured our project in multiple applications and plugins, each having a clear responsability and a given [Grails 3 profile](http://docs.grails.org/latest/guide/profiles.html):
 
-| *Name*            | *Type*        | *Grails 3 profile* | *Description*
-|-------------------|
+| *Name*            | *Type*        |  *Grails profile*  | *Description*                                                     |
+| ----------------- |:-------------:| ------------------:| -----------------------------------------------------------------:|
 | app-admin         | application   | web                | The admin portal application (for intranet) used for administration
 | app-web           | application   | angular2           | The web application exposed to the customers (for internet)
 | mod-domain        | plugin        | plugin             | A plugin with the application domain (domain services and entities)
 | mod-mobile        | plugin        | rest-api-plugin    | A plugin containing the REST API consumed by a mobile app
-| app-microservice  | application   | rest-api           | A miroservice exposing a REST API for used by the other applications
+| app-microservice  | application   | rest-api           | A miroservice exposing a REST API for used by the other apps
 
 The *mod-domain* plugin will be a dependency for all the applications because is the herth of the application. The *micro-search* microservice will be called by the others applications for some specific services using a REST API.
 
