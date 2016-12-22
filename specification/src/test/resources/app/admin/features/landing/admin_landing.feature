@@ -1,7 +1,7 @@
 Feature: Admin landing
   In order to administrate the application
   As a application administrator
-  I want to go to the welcome page and see instructions information
+  I want to go to the the admin page
 
   Scenario: Landing on admin site
     Given I am an 'administrator' of the application
