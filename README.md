@@ -4,7 +4,7 @@
 
 This is the source code for the Grails 3 - Step by Step Book sample application. The presentations site for this book is https://grailsthreebook.com. You can buy the book from https://leanpub.com/grails3book. You can read the sample chapter from https://leanpub.com/grails3book/read
 
-The application is based on a multi project Gradle build so the application can be automatically built using Gradle - the build tool used by Grails 3. This application is available online and the deployment is done automatically to AWS cloud in a Continuous Deployment style using Jenkins on this location: http://application.eu-central-1.elasticbeanstalk.com
+The application is based on a multi project Gradle build so the application can be automatically built using Gradle - the build tool used by Grails 3. This application is available online and the deployment is done automatically to AWS cloud in a Continuous Deployment style using Jenkins on this location: http://application.eu-central-1.elasticbeanstalk.com. Sereniti lving documentation: http://serenity-mvp.s3-website.eu-central-1.amazonaws.com
 
 ## Main applictions and plugins
 
