@@ -21,5 +21,4 @@ public class AdminLandingPage extends PageObject {
     public AdminLandingPage(WebDriver driver) {
         super(driver);
     }
-
 }

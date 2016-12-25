@@ -1,8 +1,6 @@
 package app.admin.features.steps;
 
-;
 import app.admin.features.steps.serenity.AdminSteps;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,11 +15,6 @@ public class AdminLandingStepDefinitions {
     public void asAnAdministrator(String role) {
 //        throw new PendingException();
         adminSteps.logRole(role);
-    }
-
-    @And("I know the url of the administration application as '(.*)'")
-    public void iKnowTheAdminPortalUrl(String url) {
-        adminSteps.logUrl(url);
     }
 
     @When("I am landing on the first page")

@@ -15,11 +15,6 @@ public class AdminSteps {
     }
 
     @Step
-    public void logUrl(String url) {
-        System.out.println("Url is: ${url}");
-    }
-
-    @Step
     public void gotoFirstPage() {
         adminLandingPage.open();
     }
