@@ -8,7 +8,9 @@ node {
  }
 
  stage('check tools') {
+   @NonCPS
    env.each { name, value -> println "Name: $name -> Value $value" }
+
    sh "gradle --version"
  }
 
