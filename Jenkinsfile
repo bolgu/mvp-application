@@ -10,7 +10,7 @@ node {
  stage('check tools') {
    sh "cd /opt/bitnami/apps/jenkins/jenkins_home/jobs/mvp-application-pipeline/workspace"
    sh "pwd"
-   sh "./gradle --version"
+   sh "/opt/bitnami/apps/jenkins/jenkins_home/jobs/mvp-application-pipeline/workspace/gradle --version"
  }
 
  stage('clean') {
