@@ -8,6 +8,7 @@ node {
  }
 
  stage('check tools') {
+   env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }
    sh "gradle --version"
  }
 
