@@ -8,9 +8,7 @@ node {
  }
 
  stage('check tools') {
-   @NonCPS
-   env.each { name, value -> println "Name: $name -> Value $value" }
-
+   sh "cd /opt/bitnami/apps/jenkins/jenkins_home/jobs/mvp-application-pipeline/workspace"
    sh "gradle --version"
  }
 
