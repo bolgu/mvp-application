@@ -1,29 +1,29 @@
-#!groovy​
+#!groovy
 
 node {
- 
-  stage('checkout') {
+
+ stage('checkout') {
    checkout scm
    // checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '9282e8f4-0a01-4dc0-b392-c8a3ec152bf1', url: 'https://github.com/colaru/mvp-application.git']]])
-  }
-  
-  stage('check tools') {
-    sh "./gradlew --version"
-  }
+ }
 
-  stage('clean') {
-    sh "./gradlew clean"
-  }
+ stage('check tools') {
+   sh "./gradlew --version"
+ }
 
-  stage('test') {
-    sh "./gradlew test"
-  }
+ stage('clean') {
+   sh "./gradlew clean"
+ }
 
-  stage('packaging') {
-    sh "./gradlew :app-admin:war"
-  }
+ stage('test') {
+   sh "./gradlew test"
+ }
 
-  stage('deploying') {
- 
-  }
+ stage('packaging') {
+   sh "./gradlew :app-admin:war"
+ }
+
+ stage('deploying') {
+
+ }
 }
