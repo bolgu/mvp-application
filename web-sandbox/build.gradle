@@ -7,12 +7,12 @@ buildscript {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.11.6"
         classpath "org.grails.plugins:hibernate5:6.0.4"
-        classpath "gradle.plugin.fi.evident.gradle.beanstalk:gradle-beanstalk-plugin:0.0.7"
 
+        classpath "gradle.plugin.fi.evident.gradle.beanstalk:gradle-beanstalk-plugin:0.0.7"
     }
 }
 
-version "0.4"
+version "0.5"
 group "web.sandbox"
 
 apply plugin:"eclipse"
@@ -48,7 +48,7 @@ beanstalk {
     deployments {
 
         test {
-            war = 'build/libs/web-sandbox-0.2.war'
+            war = 'build/libs/web-sandbox-${version}.war'
             application = 'mvp'
             environment = 'mvp-env'
         }
