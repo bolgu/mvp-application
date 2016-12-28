@@ -20,7 +20,7 @@ node {
  }
 
  stage('unit test') {
-   sh "./gradlew test -unit"
+   sh "./gradlew :app-admin:test"
  }
 
  stage('packaging') {
