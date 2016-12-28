@@ -20,14 +20,14 @@ node {
  }
 
  stage('unit test') {
-   sh "./gradlew :app-admin:test"
+   sh "./gradlew :web-sandbox:test"
  }
 
  stage('packaging') {
-   sh "./gradlew :app-admin:war"
+   sh "./gradlew :web-sandbox:war"
  }
 
  stage('deploying') {
-
+    sh "./gradlew :web-sandbox:deployTest"
  }
 }
