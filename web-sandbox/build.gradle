@@ -48,7 +48,7 @@ beanstalk {
     deployments {
 
         test {
-            war = 'build/libs/web-sandbox-${version}.war'
+            war = "build/libs/web-sandbox-${version}.war"
             application = 'mvp'
             environment = 'mvp-env'
         }
