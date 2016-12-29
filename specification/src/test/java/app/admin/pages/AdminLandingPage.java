@@ -7,7 +7,8 @@ import net.thucydides.core.annotations.WhenPageOpens;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-@DefaultUrl("http://application.eu-central-1.elasticbeanstalk.com")
+//@DefaultUrl("http://application.eu-central-1.elasticbeanstalk.com")
+@DefaultUrl("http://localhost:8080")
 public class AdminLandingPage extends PageObject {
 
     @FindBy(tagName="h1")
