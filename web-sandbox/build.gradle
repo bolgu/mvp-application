@@ -22,7 +22,7 @@ apply plugin:"org.grails.grails-web"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"asset-pipeline"
 
-apply plugin: "fi.evident.beanstalk"
+apply plugin:"fi.evident.beanstalk"
 
 repositories {
     mavenLocal()
