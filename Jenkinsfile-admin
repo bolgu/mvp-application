@@ -16,7 +16,7 @@ node {
  }
 
  stage('test') {
-   // sh "./gradlew :specification:test aggregate"
+   sh "./gradlew :specification:test aggregate"
  }
 
  stage('packaging') {
