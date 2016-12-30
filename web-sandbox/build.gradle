@@ -12,7 +12,7 @@ buildscript {
     }
 }
 
-version "0.6"
+version "0.7"
 group "web.sandbox"
 
 apply plugin:"eclipse"
