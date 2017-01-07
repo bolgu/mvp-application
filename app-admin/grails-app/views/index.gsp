@@ -43,6 +43,9 @@
                 </g:each>
             </ul>
         </li>
+        <li>
+            <g:link controller='logoff'>Logout</g:link>
+        </li>
     </content>
 
     <div class="svg" role="presentation">
