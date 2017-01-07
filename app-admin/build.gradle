@@ -12,7 +12,7 @@ buildscript {
     }
 }
 
-version "1.0.3"
+version "1.0.4"
 group "app.admin"
 
 apply plugin:"eclipse"
@@ -76,6 +76,10 @@ dependencies {
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
+
+    compile 'org.grails.plugins:spring-security-core:3.1.1'
+
+    compile 'org.grails.plugins:spring-security-appinfo:3.0.0'
 }
 
 bootRun {
