@@ -1,0 +1,29 @@
+#!groovy
+
+node {
+
+ stage('checkout') {
+   checkout scm
+ }
+
+ stage('check tools') {
+   sh "pwd"
+   sh "./gradlew --version"
+ }
+
+ stage('clean') {
+   sh "./gradlew clean"
+ }
+
+ stage('packaging') {
+   sh "./gradlew :app-admin:war"
+ }
+
+ stage('deploying') {
+    sh "./gradlew :app-admin:deployTest"
+ }
+
+ stage('test') {
+    sh "./gradlew :specification:test aggregate"
+  }
+}
