@@ -1,4 +1,4 @@
-package mod.domain
+package app.admin.jobsboard
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Type)
-class TypeSpec extends Specification {
+@TestFor(Job)
+class JobSpec extends Specification {
 
     def setup() {
     }

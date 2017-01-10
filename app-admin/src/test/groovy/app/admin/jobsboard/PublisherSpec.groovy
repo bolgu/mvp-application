@@ -1,4 +1,4 @@
-package mod.domain
+package app.admin.jobsboard
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification

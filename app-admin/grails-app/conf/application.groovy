@@ -17,7 +17,13 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
 	[pattern: '/index',          access: ['ROLE_ADMIN']],
 	[pattern: '/index.gsp',      access: ['ROLE_ADMIN']],
-	[pattern: '/securityInfo/*', access: ['ROLE_ADMIN']]
+	[pattern: '/securityInfo/*', access: ['ROLE_ADMIN']],
+
+    [pattern: '/user/*', access: ['ROLE_ADMIN']],
+    [pattern: '/job/*', access: ['ROLE_ADMIN']],
+    [pattern: '/publisher/*', access: ['ROLE_ADMIN']],
+    [pattern: '/tag/*', access: ['ROLE_ADMIN']],
+    [pattern: '/type/*', access: ['ROLE_ADMIN']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
