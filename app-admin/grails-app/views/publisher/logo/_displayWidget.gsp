@@ -1,0 +1,1 @@
+<g:img style="width: 50px; length: 50px" uri="data:img/png;base64,${bean.logo.encodeBase64()}"/>

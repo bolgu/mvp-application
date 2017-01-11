@@ -35,3 +35,10 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+// https://grails-fields-plugin.github.io/grails-fields/guide/performance.html
+environments {
+	development {
+		grails.plugin.fields.disableLookupCache = true
+	}
+}
+
