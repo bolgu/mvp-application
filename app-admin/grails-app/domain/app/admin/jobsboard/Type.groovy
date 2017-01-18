@@ -10,5 +10,15 @@ class Type {
 
     static constraints = {
         name nullable: false, blank: false
+        description nullable: true, blank: true
+    }
+
+    static mapping = {
+        cache true
+    }
+
+    @Override
+    public String toString() {
+        return name
     }
 }

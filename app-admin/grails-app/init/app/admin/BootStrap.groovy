@@ -64,28 +64,32 @@ class BootStrap {
             defaultTags.each {
                 def tag = new Tag(name: it)
                 tag.save(flash: true, failOnError: true)
+                log.info "tag ${tag.id} saved \n"
             }
         }
     }
 
     def populateTestPublishers() {
         if(Publisher.count() == 0) {
+            def logo = uriToImage("https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png")
             def publisher = new Publisher(
                  name: "Github",
                  url: "http://jobs.github.com",
                  contactEmail: "admin@github.com",
                  location: "USA",
                  twitterId: "twitter",
-                 logo: uriToImage("https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png")
+                 logo: logo?:[]
             )
             publisher.save(flash: true, failOnError: true)
+
+            logo = uriToImage("https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/se/se-icon.png")
             publisher = new Publisher(
                     name: "Stackoverflow",
                     url: "http://stackoverflow.com/jobs",
                     contactEmail: "admin@stackoverflow.com",
                     location: "USA",
                     twitterId: "stackoverflow",
-                    logo: uriToImage("https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/se/se-icon.png")
+                    logo: logo?:[]
             )
             publisher.save(flash: true, failOnError: true)
         }
@@ -93,6 +97,11 @@ class BootStrap {
 
     def populateTestJobs() {
         if(Job.count() == 0) {
+
+            def tags = []
+            tags << Tag.first()
+            tags << Tag.last()
+
             def job = new Job(
                     title: "Software Developer",
                     description: "Build a stock position monitoring system to support our existing trading engines. This will consist of a server and also client APIs in C and Java.",
@@ -104,7 +113,8 @@ class BootStrap {
                     publisher: Publisher.last(),
                     active: true,
                     remote: true,
-                    expirationDate: new Date() + 30
+                    expirationDate: new Date() + 30,
+                    tags: tags
             )
             job.save(flash: true, failOnError: true)
         }

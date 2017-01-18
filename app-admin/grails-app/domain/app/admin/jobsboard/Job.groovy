@@ -33,5 +33,11 @@ class Job {
         active defaultValue: false
         expirationDate nullable: false
         remote nullable: false
+        type nullable: true
+        publisher nullable: true
+    }
+
+    static mapping = {
+        cache true
     }
 }

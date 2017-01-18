@@ -48,20 +48,34 @@
         </li>
     </content>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
-        </div>
-    </div>
+    %{--<div class="svg" role="presentation">--}%
+        %{--<div class="grails-logo-container">--}%
+            %{--<asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>--}%
+        %{--</div>--}%
+    %{--</div>--}%
 
     <div id="content" role="main">
         <section class="row colset-2-its">
             <h1>Welcome to Admin Application</h1>
 
             <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
+                Congratulations <sec:loggedInUserInfo field='username'/>, you have successfully logged in Administration Application!
+            </p>
+            <p>
+                <sec:ifAllGranted roles='ROLE_ADMIN'>
+                    You can manage the users and the jobs on this site!
+                </sec:ifAllGranted>
+                <sec:ifAllGranted roles='ROLE_OPERATOR'>
+                    You can manage the jobs on this site!
+                </sec:ifAllGranted>
+            </p>
+
+            <div><s:top type="publishers"/></div>
+            <div><s:top type="tags"/></div>
+            <div><s:top type="types"/></div>
+
+            <p>
+                Below is a list of controllers that are currently deployed in
                 this application, click on each to execute its default action:
             </p>
 

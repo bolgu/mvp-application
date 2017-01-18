@@ -10,9 +10,20 @@ class JobControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
 
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
-        assert false, "TODO: Provide a populateValidParams() implementation for this generated test suite"
+        params["title"] = 'Software Developer'
+        params["description"] = 'Build a stock position monitoring system to support our existing trading engines. This will consist of a server and also client APIs in C and Java.'
+        params["jobUrl"] = 'https://stackoverflow.com/jobs/132418/software-developer-silver-fern-investments'
+        params["contactEmail"] = 'admin@stackoverflow.com'
+        params["applyInstructions"] = 'E-mail to admin@stackoverflow.com'
+        params["salaryEstimate"] = '1000000 per year'
+        params["expirationDate"] = new Date() + 30
+
+        params["type.id"] = 0
+        params["publisher.id"] = 0
+
+        params["active"] = true
+        params["remote"] = true
+
     }
 
     void "Test the index action returns the correct model"() {

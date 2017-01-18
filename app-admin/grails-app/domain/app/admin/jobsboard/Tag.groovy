@@ -10,4 +10,13 @@ class Tag {
     static constraints = {
         name nullable: false, blank: false
     }
+
+    static mapping = {
+        cache true
+    }
+
+    @Override
+    public String toString() {
+        return name
+    }
 }

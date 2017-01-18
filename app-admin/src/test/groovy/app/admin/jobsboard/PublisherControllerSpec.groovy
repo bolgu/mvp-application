@@ -10,9 +10,12 @@ class PublisherControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
 
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
-        assert false, "TODO: Provide a populateValidParams() implementation for this generated test suite"
+        params["name"] = 'Github'
+        params["url"] = 'http://jobs.github.com'
+        params["contactEmail"] = 'admin@github.com'
+        params["location"] = 'USA'
+        params["twitterId"] = 'github'
+        params["logo"] = []
     }
 
     void "Test the index action returns the correct model"() {

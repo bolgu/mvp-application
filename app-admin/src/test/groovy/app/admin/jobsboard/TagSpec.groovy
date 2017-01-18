@@ -15,8 +15,17 @@ class TagSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
-        expect:"fix me"
-            true == false
+    void "completed tag creation"() {
+        given: "a complete new tag"
+            def tag = new Tag(name: "Remote")
+        expect: "we can save a complete job tag"
+            true == tag.validate()
+    }
+
+    void "can't save a tag without a name"() {
+        given: "a job tag tag without a name"
+            def tag = new Tag(name: "")
+        expect: "we can't save the tag"
+            false == tag.validate()
     }
 }

@@ -10,9 +10,8 @@ class TypeControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
 
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
-        assert false, "TODO: Provide a populateValidParams() implementation for this generated test suite"
+        params["name"] = 'Full-time'
+        params["description"] = 'Full time job'
     }
 
     void "Test the index action returns the correct model"() {
