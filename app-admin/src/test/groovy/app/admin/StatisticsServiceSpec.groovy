@@ -24,53 +24,6 @@ class StatisticsServiceSpec extends Specification {
     def cleanup() {
     }
 
-    void "get the total count of jobs, publishers, tags and types on empty system"() {
-        given: "when we don't have nothing in our system"
-
-        when: "we don't have jobs in system"
-        then: "we will get 0 jobs in system"
-            service.getCount("jobs") == 0
-
-        when: "we don't have publishers in system"
-        then: "we will get 0 publishers in system"
-            service.getCount("publishers") == 0
-
-        when: "we don't have tags in system"
-        then: "we will get 0 tags in system"
-            service.getCount("tags") == 0
-
-        when: "we don't have types in system"
-        then: "we will get 0 types in system"
-            service.getCount("types") == 0
-    }
-
-    void "get the total count of jobs, publishers, tags and types on operational system"() {
-        given: "when we don't have nothing in our system"
-
-        when: "we have 2 tags in system"
-            Tag.build()
-            Tag.build()
-        then:"we will get 0 tags in system"
-            service.getCount("tags") == 2
-
-        when: "we have 1 type in system"
-            Type.build()
-        then:"we will get 1 type in system"
-            service.getCount("types") == 1
-
-        when: "we don't have 1 publisher in system"
-            Publisher.build()
-            Publisher.build()
-        then:"we will get 1 publisher in system"
-            service.getCount("publishers") == 2
-
-        when: "we have 2 jobs in system"
-            Job.build(publisher: Publisher.last(), type: Type.last(), tags: [Tag.last()])
-            Job.build(publisher: Publisher.last(), type: Type.last(), tags: [Tag.last()])
-        then:"we will get 2 jobs in system"
-            service.getCount("jobs") == 2
-    }
-
     void "get top publishers when we don't have nothing in our system"() {
         given: "when we don't have any job published"
 

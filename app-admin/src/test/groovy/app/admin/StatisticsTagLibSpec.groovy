@@ -35,8 +35,8 @@ class StatisticsTagLibSpec extends Specification {
             Job.build(publisher: publisher, type: type, tags: [tag])
             Job.build(publisher: publisher, type: type, tags: [tag])
         expect:
-            applyTemplate('<s:top type="publishers" />') == "<strong>Publishers</strong> <ul>[name:2]</ul>"
-            applyTemplate('<s:top type="types" />') == "<strong>Types</strong> <ul>[name:2]</ul>"
-            applyTemplate('<s:top type="tags" />') == "<strong>Tags</strong> <ul>[[name]:2]</ul>"
+            applyTemplate('<s:top type="publishers" />') == "<strong>Publishers (1)</strong> <ul>[name:2]</ul>"
+            applyTemplate('<s:top type="types" />') == "<strong>Types (1)</strong> <ul>[name:2]</ul>"
+            applyTemplate('<s:top type="tags" />') == "<strong>Tags (1)</strong> <ul>[[name]:2]</ul>"
     }
 }
