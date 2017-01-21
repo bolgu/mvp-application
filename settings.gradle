@@ -1,1 +1,3 @@
-include "web-sandbox", "mod-sandbox", "mod-domain", "mod-mobile", "app-admin", "app-web", "app-microservice", "specification"
+include "app-admin", "mod-domain", "mod-mobile",
+        "app-microservice", "specification",
+        "web-sandbox", "mod-sandbox", "angular-sandbox", "angular2-sandbox"
