@@ -20,8 +20,27 @@ function config($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('index', {
             url: "/",
-            templateUrl: "/app/web/index/index.html"
-        });
+            // templateUrl: "/app/web/index/index.html"
+            templateUrl: "/app/web/index/landing.html"
+        })
+        .state('jobs', {
+            url: "/jobs",
+            templateUrl: "/app/web/index/jobs.html",
+            controller: "JobListController as vm"
+        })
+        .state('contact', {
+            url: "/contact",
+            templateUrl: "/app/web/index/contact.html"
+        })
+        .state('faq', {
+            url: "/faq",
+            templateUrl: "/app/web/index/faq.html"
+        })
+        .state('about', {
+            url: "/about",
+            templateUrl: "/app/web/index/about.html"
+        })
+    ;
 
     $urlRouterProvider.otherwise('/');
 }

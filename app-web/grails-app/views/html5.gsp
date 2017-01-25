@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Welcome to Grails</title>
+    <title>IT Jobs Board Europe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <style type="text/css">
@@ -12,15 +12,23 @@
         }
     </style>
 
-    <link rel="stylesheet" href="/assets/application.css">
-    <!-- Bootstrap CSS-->
-    %{--<link rel="stylesheet" href="/assets/bootstrap.min.css">--}%
-    <!-- Theme stylesheet-->
-    %{--<link rel="stylesheet" href="/assets/style.default.css">--}%
-    <!-- Custom stylesheet - for your changes-->
-    %{--<link rel="stylesheet" href="/assets/custom.css">--}%
+    %{-- ###### Default app theme--}%
+    %{--<link rel="stylesheet" href="/assets/application.css">--}%
 
-    <link rel="shortcut icon" href="/asset/favicon.ico">
+    %{-- ###### New theme--}%
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/font-awesome.min.css">
+    <!-- Google fonts - Roboto for copy, Montserrat for headings-->
+    <link rel="stylesheet" href="/assets/roboto.css?family=Roboto:300,400,700">
+    <link rel="stylesheet" href="/assets/montserrat.css?family=Montserrat:400,700">
+    <!-- Theme stylesheet-->
+    <link rel="stylesheet" href="/assets/style.pink.css">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/custom.css">
+
+    <link rel="shortcut icon" href="/assets/ux/favicon.ico">
 
     <script type="text/javascript">
         window.contextPath = "";
@@ -28,65 +36,140 @@
 </head>
 
 <body ng-app="app.web" ng-controller="IndexController as indexCtrl">
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" ng-click="navExpanded = !navExpanded">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/#">
-                    <i class="fa grails-icon">
-                        <img src="/assets/grails-cupsonly-logo-white.svg"/>
-                    </i> Grails
-                </a>
+
+    <!-- navbar-->
+    <header class="header">
+        <div role="navigation" class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand">
+                        <img src="assets/ux/logo.png" alt="logo" class="hidden-xs hidden-sm">
+                        <img src="assets/ux/logo-small.png" alt="logo" class="visible-xs visible-sm">
+                        <span class="sr-only">Go to homepage</span>
+                    </a>
+                    <div class="navbar-buttons">
+                        <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
+                    </div>
+                </div>
+                <div id="navigation" class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/#jobs">Jobs</a></li>
+                        <li><a href="/#about">About us</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                    <a href="#" data-toggle="modal" data-target="#login-modal" class="btn navbar-btn btn-white">
+                        <i class="fa fa-sign-in"></i>Log in
+                    </a>
+                </div>
             </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;" uib-collapse="!navExpanded">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown" uib-dropdown>
-                        <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-                        <ul class="dropdown-menu" uib-dropdown-menu>
-                            <li><a href="#">Environment: {{indexCtrl.applicationData.environment}}</a></li>
-                            <li><a href="#">App profile: {{indexCtrl.applicationData.appprofile}}</a></li>
-                            <li><a href="#">App version: {{indexCtrl.applicationData.appversion}}</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Grails version: {{indexCtrl.applicationData.grailsversion}}</a></li>
-                            <li><a href="#">Groovy version: {{indexCtrl.applicationData.groovyversion}}</a></li>
-                            <li><a href="#">JVM version: {{indexCtrl.applicationData.jvmversion}}</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Reloading active: {{indexCtrl.applicationData.reloadingagentenabled}}</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown" uib-dropdown>
-                        <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
-                        <ul class="dropdown-menu" uib-dropdown-menu>
-                            <li><a href="#">Controllers: {{indexCtrl.applicationData.artefacts.controllers}}</a></li>
-                            <li><a href="#">Domains: {{indexCtrl.applicationData.artefacts.domains}}</a></li>
-                            <li><a href="#">Services: {{indexCtrl.applicationData.artefacts.services}}</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown" uib-dropdown>
-                        <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
-                        <ul class="dropdown-menu" uib-dropdown-menu>
-                            <li ng-repeat="plugin in indexCtrl.applicationData.plugins"><a href="#">{{plugin.name}} - {{plugin.version}}</a></li>
-                        </ul>
-                    </li>
-                </ul>
+        </div>
+    </header>
+
+    <!-- *** LOGIN MODAL ***_________________________________________________________
+        -->
+    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+                    <h4 id="Login" class="modal-title">Customer login</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="customer-orders.html" method="post">
+                        <div class="form-group">
+                            <input id="email_modal" type="text" placeholder="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input id="password_modal" type="password" placeholder="password" class="form-control">
+                        </div>
+                        <p class="text-center">
+                            <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                        </p>
+                    </form>
+                    <p class="text-center text-muted">Not registered yet?</p>
+                    <p class="text-center text-muted"><a href="/"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+                </div>
             </div>
         </div>
     </div>
+    <!-- *** LOGIN MODAL END ***-->
 
     <div ui-view></div>
 
-    <div class="footer" role="contentinfo"></div>
-
-    <div id="spinner" class="spinner" style="display:none;">
-        Loading&hellip;
-    </div>
+    <footer class="footer">
+        <div class="footer__block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <h4>About itjobsboard.eu</h4>
+                        <p>ITJOBSBOARD.EU is a <strong>jobs board</strong> for the European Union</p>
+                        <p> We reflect the IT market in Europe </p>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <h4>Links</h4>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/#jobs">Jobs Listing</a></li>
+                            <li><a href="/#about">About</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                            <li><a href="/#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <h4>Our office</h4>
+                        <h5>Bucharest</h5>
+                        <p> Cristescu Dima<br />nr. 7<br />mobile: 0040743163039</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <h4>Client zone</h4>
+                        <ul>
+                            <li><a href="/">Login or Register</a></li>
+                            <li><a href="/">Post a new job</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <h4>Let's be Friends</h4>
+                        <p class="social"><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <h4>News and Updates</h4>
+                        <p>Sign up to get weekly portion of fresh jobs and news from us.</p>
+                        <form class="footer__newsletter">
+                            <div class="input-group">
+                                <input type="text" placeholder="Enter your email address" class="form-control"><span class="input-group-btn">
+                                <button type="button" class="btn btn-default"><i class="fa fa-send"></i></button></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy;2017 ItJobsBoard.EU</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="credit pull-right">Sample for <a href="https://grailsthreebook.com">Grails 3 Book</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="/assets/app/web/app.web.js"> </script>
+
+    <script src="/assets/jquery/jquery.min.js"></script>
+    <script src="/assets/bootstrap/bootstrap.js"> </script>
+    <script src="/assets/others/jquery.cookie.js"> </script>
+    <script src="/assets/others/owl.carousel.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;amp;sensor=false"></script>
+    <script src="/assets/others/front.js"></script>
 
 </body>
 </html>

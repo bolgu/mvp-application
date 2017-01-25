@@ -102,21 +102,28 @@ class BootStrap {
             tags << Tag.first()
             tags << Tag.last()
 
-            def job = new Job(
-                    title: "Software Developer",
-                    description: "Build a stock position monitoring system to support our existing trading engines. This will consist of a server and also client APIs in C and Java.",
-                    jobUrl: "https://stackoverflow.com/jobs/132418/software-developer-silver-fern-investments",
-                    contactEmail: "admin@stackoverflow.com",
-                    applyInstructions: "admin@stackoverflow.com",
-                    salaryEstimate: "1000000 per year",
-                    type: Type.last(),
-                    publisher: Publisher.last(),
-                    active: true,
-                    remote: true,
-                    expirationDate: new Date() + 30,
-                    tags: tags
-            )
-            job.save(flash: true, failOnError: true)
+            (1..15).each {
+                def job = new Job(
+                        title: "Software Developer",
+                        description: "Build a stock position monitoring system to support our existing trading engines. This will consist of a server and also client APIs in C and Java.",
+                        jobUrl: "https://stackoverflow.com/jobs/132418/software-developer-silver-fern-investments",
+                        contactEmail: "admin@stackoverflow.com",
+                        applyInstructions: "admin@stackoverflow.com",
+                        salaryEstimate: "1000000 per year",
+                        type: Type.last(),
+                        publisher: Publisher.last(),
+                        active: true,
+                        remote: true,
+                        expirationDate: new Date() + 30,
+                        tags: tags
+                )
+
+                job.title = "Software Developer - code: (${it})"
+                if(it%2 == 0) {
+                    job.publisher = Publisher.first()
+                }
+                job.save(flash: true, failOnError: true)
+            }
         }
     }
 

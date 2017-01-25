@@ -51,7 +51,7 @@ grails:
             js: text/javascript
             rss: application/rss+xml
             text: text/plain
-            all: '*/*'            
+            all: '*/*'
     urlmapping:
         cache:
             maxsize: 1000

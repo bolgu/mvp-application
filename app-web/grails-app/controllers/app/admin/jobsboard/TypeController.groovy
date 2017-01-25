@@ -1,5 +1,7 @@
 package app.admin.jobsboard
 
+import grails.plugin.springsecurity.annotation.Secured
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -9,11 +11,13 @@ class TypeController {
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(["permitAll"])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Type.list(params), model:[typeCount: Type.count()]
     }
 
+    @Secured(["permitAll"])
     def show(Type type) {
         respond type
     }
