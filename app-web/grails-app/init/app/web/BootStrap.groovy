@@ -28,9 +28,9 @@ class BootStrap {
         def operatorRole = new Role(authority: 'ROLE_OPERATOR').save()
         def customerRole = new Role(authority: 'ROLE_CUSTOMER').save()
 
-        def adminUser = new User(username: 'admin', password: 'password').save()
-        def operatorUser = new User(username: 'operator', password: 'password').save()
-        def customerUser = new User(username: 'customer', password: 'password').save()
+        def adminUser = new User(username: 'admin', password: 'Password123!').save()
+        def operatorUser = new User(username: 'operator', password: 'Password123!').save()
+        def customerUser = new User(username: 'customer', password: 'Password123!').save()
 
         UserRole.create adminUser, adminRole
         UserRole.create operatorUser, operatorRole
@@ -76,7 +76,7 @@ class BootStrap {
                     name: "Github",
                     url: "http://jobs.github.com",
                     contactEmail: "admin@github.com",
-                    location: "USA",
+                    location: "Germany",
                     twitterId: "twitter",
                     logo: logo?:[]
             )
@@ -87,7 +87,7 @@ class BootStrap {
                     name: "Stackoverflow",
                     url: "http://stackoverflow.com/jobs",
                     contactEmail: "admin@stackoverflow.com",
-                    location: "USA",
+                    location: "Belgium",
                     twitterId: "stackoverflow",
                     logo: logo?:[]
             )
