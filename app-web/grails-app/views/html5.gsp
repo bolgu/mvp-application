@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>IT Jobs Board Europe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="IT JobsBoard Europe - find the perfect job in Europe"/>
+    <meta name="keywords" content="IT, Jobsboard, Europe"/>
 
     <style type="text/css">
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -12,26 +14,31 @@
         }
     </style>
 
-    %{-- ###### Default app theme--}%
-    %{--<link rel="stylesheet" href="/assets/application.css">--}%
-
-    %{-- ###### New theme--}%
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="/assets/bootstrap.min.css">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="/assets/font-awesome.min.css">
-    <!-- Google fonts - Roboto for copy, Montserrat for headings-->
-    <link rel="stylesheet" href="/assets/roboto.css?family=Roboto:300,400,700">
-    <link rel="stylesheet" href="/assets/montserrat.css?family=Montserrat:400,700">
-    <!-- Theme stylesheet-->
-    <link rel="stylesheet" href="/assets/style.pink.css">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="/assets/custom.css">
+    %{-- ######  App theme--}%
+    <link rel="stylesheet" href="/assets/ux.application.css">
 
     <link rel="shortcut icon" href="/assets/ux/favicon.ico">
 
     <script type="text/javascript">
         window.contextPath = "";
+    </script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-90999958-1', 'auto');
+
+        ga('send', 'pageview', location.pathname);
+
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'page',
+            eventAction: 'view',
+            eventLabel: location.pathname
+        });
     </script>
 </head>
 
@@ -161,33 +168,9 @@
         </div>
     </footer>
 
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-90999958-1', 'auto');
-
-        ga('send', 'pageview', location.pathname);
-
-        ga('send', {
-            hitType: 'event',
-            eventCategory: 'page',
-            eventAction: 'view',
-            eventLabel: location.pathname
-        });
-    </script>
-
-    <script src="/assets/app/web/app.web.js"> </script>
-
-    <script src="/assets/jquery/jquery.min.js"></script>
-    <script src="/assets/bootstrap/bootstrap.js"> </script>
-    %{--<script src="/assets/others/jquery.cookie.js"> </script>--}%
-    %{--<script src="/assets/others/owl.carousel.min.js"></script>--}%
+    <script src="/assets/app/web/ux.app.web.js"> </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;amp;sensor=false"></script>
-    <script src="/assets/others/front.js"></script>
 
 </body>
 </html>
