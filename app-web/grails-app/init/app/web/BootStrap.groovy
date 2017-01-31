@@ -102,7 +102,7 @@ class BootStrap {
             tags << Tag.first()
             tags << Tag.last()
 
-            (1..15).each {
+            (1..3).each {
                 def job = new Job(
                         title: "Software Developer",
                         description: "Build a stock position monitoring system to support our existing trading engines. This will consist of a server and also client APIs in C and Java.",

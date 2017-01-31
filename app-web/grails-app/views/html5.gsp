@@ -14,7 +14,6 @@
         }
     </style>
 
-    %{-- ######  App theme--}%
     <link rel="stylesheet" href="/assets/ux.application.css">
 
     <link rel="shortcut icon" href="/assets/ux/favicon.ico">
@@ -170,7 +169,7 @@
 
     <script src="/assets/app/web/ux.app.web.js"> </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;amp;sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;amp;sensor=false;key=AIzaSyBz1rIRWrZUKxAGUyPsmKPcPZUQf7nRouk"></script>
 
 </body>
 </html>

@@ -14,7 +14,7 @@ buildscript {
     }
 }
 
-version "1.100"
+version "1.12"
 group "app.web"
 
 apply plugin:"eclipse"
