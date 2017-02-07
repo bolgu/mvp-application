@@ -5,6 +5,7 @@ class Publisher {
     String name
 
     byte[] logo
+    String logoBase64
     String url
     String twitterId
     String contactEmail
@@ -19,12 +20,15 @@ class Publisher {
         url nullable: false, blank: false
         contactEmail nullable: false, blank: false, email: true
         location nullable: false, blank: false
-        logo size: 0..1024 * 1024 * 1, maxSize: 1024 * 1024 * 1, nullable: false // 5M
+        logo size: 0..1024 * 1024 * 1, maxSize: 1024 * 1024 * 1, nullable: false // 1M
+        logoBase64 nullable: true, blank: true
     }
 
     static mapping = {
         cache true
     }
+
+    static transients = ['logoBase64']
 
     @Override
     public String toString() {
