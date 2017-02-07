@@ -157,7 +157,7 @@ environments:
 #
 #            pooled: true
 #            properties:
-##               https://tomcat.apache.org/tomcat-8.0-doc/jdbc-pool.html
+#                https://tomcat.apache.org/tomcat-8.0-doc/jdbc-pool.html
 #                jmxEnabled: true
 #                initialSize: 5
 #                maxActive: 20

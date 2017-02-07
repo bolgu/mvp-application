@@ -1,9 +1,9 @@
 
-
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'app.admin.security.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'app.admin.security.UserRole'
 grails.plugin.springsecurity.authority.className = 'app.admin.security.Role'
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -28,6 +28,18 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+
+//http://grails-plugins.github.io/grails-spring-security-core/v3/index.html#channelSecurity
+//grails.plugin.springsecurity.secureChannel.definition = [
+//		[pattern: '/assets/**',       access: 'ANY_CHANNEL'],
+//		[pattern: '/**/js/**',       access: 'ANY_CHANNEL'],
+//		[pattern: '/**/css/**',       access: 'ANY_CHANNEL'],
+//		[pattern: '/**/images/**',       access: 'ANY_CHANNEL'],
+//		[pattern: '/**/favicon.ico',       access: 'ANY_CHANNEL'],
+//		[pattern: '/**', access: 'REQUIRES_SECURE_CHANNEL']
+//]
+
+//grails.plugin.springsecurity.secureChannel.useHeaderCheckChannelSecurity = true
 
 // https://grails-fields-plugin.github.io/grails-fields/guide/performance.html
 environments {

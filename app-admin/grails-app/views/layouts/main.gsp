@@ -47,5 +47,14 @@
 
     <asset:javascript src="application.js"/>
 
+    <div>
+        &nbsp;&nbsp;
+        Instance: <%=InetAddress.getLocalHost()%> |
+        Session Id : <%=request.getSession().getId()%> |
+        Is it New Session : <%=request.getSession().isNew()%> |
+        Session Creation Date : <%=new Date(request.getSession().getCreationTime())%> |
+        Session Access Date : <%=new Date(request.getSession().getLastAccessedTime())%>
+    </div>
+
 </body>
 </html>
