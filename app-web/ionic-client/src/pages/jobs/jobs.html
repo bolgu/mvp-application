@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Jobs List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="cards-bg social-cards">
+  <ion-card *ngFor="let item of items" (click)="itemTapped($event, item)">
+
+    <button ion-item >
+      <ion-avatar item-left>
+        <img style="width: 50px; length: 50px" src="{{contextPath}}/renderLogo?id={{item.publisher.id}}"
+             alt="{{item.publisher.name}}"
+             class="img-responsive">
+      </ion-avatar>
+      <h2>{{item.title}}</h2>
+      <p>{{item.dateCreated}}</p>
+    </button>
+
+    <ion-card-content>
+      <p>{{item.description}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>

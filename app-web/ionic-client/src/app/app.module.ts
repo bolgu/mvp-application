@@ -1,24 +1,25 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
+import { JobsBoardApp } from './app.component';
+import { JobsData } from '../providers/jobs-data.ts';
+import { IndexPage } from '../pages/index/index';
+import { JobsPage } from '../pages/jobs/jobs';
 
 @NgModule({
   declarations: [
-    MyApp,
-    Page1,
-    Page2
+    JobsBoardApp,
+    IndexPage,
+    JobsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(JobsBoardApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    Page1,
-    Page2
+    JobsBoardApp,
+    IndexPage,
+    JobsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, JobsData]
 })
 export class AppModule {}
