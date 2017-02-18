@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { JobsData } from "../../providers/jobs-data";
 import { GlobalVariable } from '../../app/global';
 
+import { InAppBrowser } from 'ionic-native';
+
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html'
@@ -26,9 +28,8 @@ export class JobsPage {
   }
 
   itemTapped(event, item) {
-    this.navCtrl.push(JobsPage, {
-      item: item
-    });
+    // we use _self instead of _system
+    new InAppBrowser(item.jobUrl, '_self');
   }
 
 }
