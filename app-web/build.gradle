@@ -45,6 +45,19 @@ grails {
     }
 }
 
+beanstalk {
+    s3Endpoint = "s3-eu-west-1.amazonaws.com"
+    beanstalkEndpoint = "elasticbeanstalk.eu-west-1.amazonaws.com"
+    deployments {
+
+        test {
+            war = "build/libs/app-web-${version}.war"
+            application = 'itjobsboard'
+            environment = 'itjobsboard-env'
+        }
+    }
+}
+
 dependencies {
     assets "com.craigburke.angular:angular-template-asset-pipeline:2.3.0"
     assets "com.craigburke.angular:angular-annotate-asset-pipeline:2.4.0"
@@ -82,7 +95,8 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 
-    compile 'org.grails.plugins:spring-security-core:3.1.1'
+//    compile 'org.grails.plugins:spring-security-core:3.1.1'
+    compile "org.grails.plugins:spring-security-rest:2.0.0.M2"
 }
 
 bootRun {
