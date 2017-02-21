@@ -11,10 +11,12 @@ buildscript {
         classpath "org.grails.plugins:hibernate5:6.0.4"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.11.6"
         classpath "org.grails.plugins:views-gradle:1.1.2"
+
+        classpath "gradle.plugin.fi.evident.gradle.beanstalk:gradle-beanstalk-plugin:0.0.7"
     }
 }
 
-version "1.12"
+version "1.13"
 group "app.web"
 
 apply plugin:"eclipse"
@@ -26,6 +28,8 @@ apply plugin:"com.craigburke.karma"
 apply plugin:"com.craigburke.client-dependencies"
 apply plugin:"asset-pipeline"
 apply plugin:"org.grails.plugins.views-json"
+
+apply plugin:"fi.evident.beanstalk"
 
 repositories {
     mavenLocal()
