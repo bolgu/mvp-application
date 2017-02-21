@@ -1,6 +1,9 @@
 package app.admin
 
 import app.admin.jobsboard.Job
+import app.admin.jobsboard.Publisher
+import app.admin.jobsboard.Tag
+import app.admin.jobsboard.Type
 import grails.transaction.Transactional
 
 @Transactional
