@@ -28,7 +28,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/fonts/**',    filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-	[pattern: '/**',             filters: 'JOINED_FILTERS']
+	[pattern: '/**',             filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
 ]
 
 // https://github.com/grails/grails-core/releases/tag/v3.0.12

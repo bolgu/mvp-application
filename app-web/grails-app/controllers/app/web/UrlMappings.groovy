@@ -15,5 +15,8 @@ class UrlMappings {
         "/"(view: '/html5')
         "500"(view: '/error')
         "404"(view: '/notFound')
+
+        "400"(view: '/error400')
+        "401"(view: '/error401')
     }
 }

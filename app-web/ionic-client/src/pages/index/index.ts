@@ -35,12 +35,24 @@ export class IndexPage {
   login(credentials) {
     // alert(JSON.stringify(credentials))
     // credentials = {username:"admin", password: "Password123!"}
-    this.http.post(this.LOGIN_URL, JSON.stringify(credentials), { headers: this.contentHeader })
-      .map(res => res.json())
-      .subscribe(
-        data => this.authSuccess(data.access_token),
-        err => this.error = err
+    if(credentials.username == "" || credentials.password == "") {
+      this.error = "User name and password should be provided!"
+    } else {
+      this.http.post(this.LOGIN_URL, JSON.stringify(credentials), { headers: this.contentHeader })
+        .map(res => res.json())
+        .subscribe(
+          data => this.authSuccess(data.access_token),
+          err => {
+            console.log(err)
+            if(err.status == 401) {
+              this.error = "Invalid password and/or username.";
+            }
+            if(err.status == 400) {
+              this.error = "Invalid call to the server.";
+            }
+          }
       );
+    }
   }
 
   signup(credentials) {
@@ -48,7 +60,15 @@ export class IndexPage {
       .map(res => res.json())
       .subscribe(
         data => this.authSuccess(data.access_token),
-        err => this.error = err
+        err => {
+          console.log(err)
+          if(err.status == 401) {
+            this.error = "Invalid password and/or username.";
+          }
+          if(err.status == 400) {
+            this.error = "Invalid call to the server.";
+          }
+        }
       );
   }
 

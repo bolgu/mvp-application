@@ -1,0 +1,6 @@
+response.status 401
+
+json {    
+    message "401 UNAUTHORIZED. The request has not been applied because it lacks valid authentication credentials for the target resource."
+    error 401
+}
