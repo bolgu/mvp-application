@@ -18,7 +18,6 @@
   </div>
 
   <div *ngIf="!auth.authenticated()">
-
     <div padding>
       <ion-segment [(ngModel)]="authType">
         <ion-segment-button value="login">
@@ -45,8 +44,8 @@
         <div padding>
           <button block type="submit" ion-button secondary>Login</button>
         </div>
-
       </form>
+
       <form *ngSwitchCase="'signup'" #signupCreds="ngForm" (ngSubmit)="signup(signupCreds.value)">
         <ion-item>
           <ion-label>Username</ion-label>
@@ -61,14 +60,12 @@
         <div padding>
           <button block type="submit" ion-button secondary>Signup</button>
         </div>
-
       </form>
     </div>
 
     <div padding>
       <p *ngIf="error" class="error"><ion-badge color="danger" item-right>{{ error }}</ion-badge></p>
     </div>
-
   </div>
 
   <div *ngIf="auth.authenticated()">
@@ -77,5 +74,4 @@
       <button ion-button secondary block (click)="logout()">Logout</button>
     </div>
   </div>
-
 </ion-content>

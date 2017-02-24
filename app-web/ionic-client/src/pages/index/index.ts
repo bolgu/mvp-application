@@ -81,6 +81,7 @@ export class IndexPage {
     this.error = null;
     localStorage.setItem('id_token', token);
     var tokenData = this.jwtHelper.decodeToken(token);
+    alert(JSON.stringify(tokenData))
     this.user = tokenData.sub
   }
 
