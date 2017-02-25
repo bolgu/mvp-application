@@ -17,6 +17,20 @@ class JobController {
         respond Job.list(params), model:[jobCount: Job.count()]
     }
 
+    @Secured(["ROLE_CUSTOMER"])
+    def listAll(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond Job.list(params), model:[jobCount: Job.count()]
+    }
+
+    @Secured(["permitAll"])
+    def listFeatured(Integer max) {
+        params.max = 2
+        params.order = "desc"
+        params.sort = "title"
+        respond Job.list(params), model:[jobCount: Job.count()]
+    }
+
     @Secured(["permitAll"])
     def show(Job job) {
         respond job

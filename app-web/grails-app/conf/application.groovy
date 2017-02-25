@@ -18,18 +18,42 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/favicon.ico', access: ['permitAll']]
 ]
 
-grails.plugin.springsecurity.filterChain.chainMap = [
 
-	//Stateless chain
-	[pattern: '/api/**',         filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'],
-	[pattern: '/assets/**',      filters: 'none'],
-	[pattern: '/**/js/**',       filters: 'none'],
-	[pattern: '/**/css/**',      filters: 'none'],
-	[pattern: '/**/images/**',   filters: 'none'],
-	[pattern: '/**/fonts/**',    filters: 'none'],
-	[pattern: '/**/favicon.ico', filters: 'none'],
-	[pattern: '/**',             filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
-]
+grails {
+	plugin {
+		springsecurity {
+			filterChain {
+				chainMap = [
+						//Stateless chain
+						[pattern: '/api/v1.0/**',    filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'],
+						[pattern: '/api/**',         filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'],
+
+						[pattern: '/assets/**',      filters: 'none'],
+						[pattern: '/**/js/**',       filters: 'none'],
+						[pattern: '/**/css/**',      filters: 'none'],
+						[pattern: '/**/images/**',   filters: 'none'],
+						[pattern: '/**/fonts/**',    filters: 'none'],
+						[pattern: '/**/favicon.ico', filters: 'none'],
+
+						//Stateful chain
+						[pattern: '/**',             filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']				]
+			}
+
+			//Other Spring Security settings
+			//...
+
+			rest {
+				token {
+					validation {
+						enableAnonymousAccess = true
+					}
+				}
+			}
+		}
+	}
+}
 
 // https://github.com/grails/grails-core/releases/tag/v3.0.12
 grails.resources.pattern = '/**'
+
+

@@ -2,23 +2,20 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { GlobalVariable } from '../app/global';
+import {AuthHttp} from 'angular2-jwt';
 
-/*
- Generated class for the JobsData provider.
-
- See https://angular.io/docs/ts/latest/guide/dependency-injection.html
- for more info on providers and Angular 2 DI.
- */
 @Injectable()
 export class JobsData {
 
-  data;
-
-  constructor(public http: Http) {
+  constructor(public http: Http, public authHttp: AuthHttp) {
     console.log('Enter JobsData Provider');
   }
 
   listJobs() {
-    return this.http.get(GlobalVariable.BASE_API_URL + "/job").map((res) => res.json())
+    return this.authHttp.get(GlobalVariable.SECURED_API_URL + "/jobs").map((res) => res.json())
+  }
+
+  listFeaturedJobs() {
+      return this.http.get(GlobalVariable.SECURED_API_URL + "/featuredJobs").map((res) => res.json())
   }
 }

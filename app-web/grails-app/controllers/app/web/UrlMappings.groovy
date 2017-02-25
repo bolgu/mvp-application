@@ -3,6 +3,7 @@ package app.web
 class UrlMappings {
 
     static mappings = {
+
         delete "/$controller/$id(.$format)?"(action:"delete")
         get "/$controller(.$format)?"(action:"index")
         get "/$controller/$id(.$format)?"(action:"show")
@@ -13,6 +14,11 @@ class UrlMappings {
 //        "/"(view: '/index')
 //        "/"(uri: "/html5.html")
         "/"(view: '/html5')
+
+        "/api/v1.0/jobs"(controller: "job", action: "listAll")
+        "/api/v1.0/featuredJobs"(controller: "job", action: "listFeatured")
+
+
         "500"(view: '/error')
         "404"(view: '/notFound')
 

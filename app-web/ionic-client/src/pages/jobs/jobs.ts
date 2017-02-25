@@ -4,6 +4,7 @@ import { JobsData } from "../../providers/jobs-data";
 import { GlobalVariable } from '../../app/global';
 
 import { InAppBrowser } from 'ionic-native';
+import {AuthService} from "../../providers/auth";
 
 @Component({
   selector: 'page-jobs',
@@ -21,10 +22,28 @@ export class JobsPage {
     this.selectedItem = navParams.get('item');
     this.contextPath = GlobalVariable.BASE_API_URL
 
-    jobsData.listJobs().subscribe(data => {
+    if(AuthService.authenticated()) {
+      this.listJobs()
+    } else {
+      this.listFeaturedJobs()
+    }
+  }
+
+  listJobs() {
+    this.jobsData.listJobs().subscribe(data => {
       this.items = data;
-      console.log("Data: " + JSON.stringify(this.items, null, 2))
+      console.log("Jobs: " + JSON.stringify(this.items, null, 2))
     });
+  }
+
+  listFeaturedJobs() {
+    this.jobsData.listFeaturedJobs().subscribe(data => {
+        this.items = data;
+        console.log("Featured jobs: " + JSON.stringify(this.items, null, 2))
+      },
+      err => {
+        console.log(err)
+      });
   }
 
   itemTapped(event, item) {
