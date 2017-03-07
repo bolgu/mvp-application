@@ -22,6 +22,22 @@
 
     <ion-card-content>
       <p>{{item.description}}</p>
+
+      <ion-grid class="post-actions">
+        <ion-row>
+          <ion-col width-33 text-center (click)="toggleLike(item)">
+            <ion-icon name="thumbs-up" color="primary"  *ngIf="item.liked"></ion-icon>
+            <ion-icon name="thumbs-up" color="gray" *ngIf="!item.liked"></ion-icon>
+          </ion-col>
+          <ion-col width-33 text-center (click)="viewPost(item.id)">
+            <ion-icon name="chatboxes" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col width-33 text-center>
+            <ion-icon name="share-alt"></ion-icon>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 
