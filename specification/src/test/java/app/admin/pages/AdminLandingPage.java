@@ -11,8 +11,11 @@ import org.openqa.selenium.WebElement;
 //@DefaultUrl("http://localhost:8080")
 public class AdminLandingPage extends PageObject {
 
-    @FindBy(tagName="h1")
+    @FindBy(tagName = "h1")
     public WebElement welcomeMessage;
+
+    @FindBy(tagName = "form")
+    public WebElement loginForm;
 
     @WhenPageOpens
     public void waitUntilTitleAppears() {

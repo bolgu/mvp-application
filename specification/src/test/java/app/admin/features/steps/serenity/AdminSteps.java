@@ -20,8 +20,15 @@ public class AdminSteps {
     }
 
     @Step
-    public void verifyPageContent(String message) {
+    public void verifyPageContentHasMessage(String message) {
         String welcomeMessage = adminLandingPage.welcomeMessage.getText();
+        assertThat(welcomeMessage).isEqualTo(message);
+    }
+
+    @Step
+    public void verifyPageContentHasForm(String message) {
+        assertThat(adminLandingPage.loginForm).isNotNull();
+        String welcomeMessage = adminLandingPage.loginForm.getText();
         assertThat(welcomeMessage).isEqualTo(message);
     }
 }

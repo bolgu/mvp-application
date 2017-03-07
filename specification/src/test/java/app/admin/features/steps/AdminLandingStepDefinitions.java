@@ -24,6 +24,6 @@ public class AdminLandingStepDefinitions {
 
     @Then("I should see a welcome message '(.*)'")
     public void seeGiveInformation(String message) {
-        adminSteps.verifyPageContent(message);
+        adminSteps.verifyPageContentHasMessage(message);
     }
 }

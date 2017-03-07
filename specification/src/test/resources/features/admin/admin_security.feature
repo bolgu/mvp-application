@@ -3,16 +3,21 @@ Feature: Admin app security
   As a user in admin role of the admin app
   I want to manage application users
 
+  Scenario: Admin site login page
+    Given I am a 'user' of the admin application
+    When I am landing on the main page
+    Then I should see a 'Login' form
+
   Scenario: Login in application as admin
     Given I am an 'admin' of the application
-    When I am login in the application
-    Then I should see the 'Admin page'
+    When I am logging in the application
+    Then I should see the message 'Admin page'
 
   Scenario: Logout from application
     Given I am an 'admin' of the application
     And I am logged into the application
     When I logout from application
-    Then I should see the 'Landing page'
+    Then I should see the 'Welcome to Admin Application'
 
   Scenario: Manage application users
     Given I am an 'admin' of the application
