@@ -68,6 +68,22 @@
     <splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
+
+  <!-- Configuration using MRT concept (Recommended, see "Windows-specific information" section for details): -->
+  <platform name="windows">
+    <icon src="resources/windows/icon/storelogo.png" target="StoreLogo" />
+    <icon src="resources/windows/icon/smalllogo.png" target="Square30x30Logo" />
+    <icon src="resources/windows/icon/Square70x70Logo.png" target="Square44x44Logo" />
+    <icon src="resources/windows/icon/Square70x70Logo.png" target="Square70x70Logo" />
+    <icon src="resources/windows/icon/Square71x71Logo.png" target="Square71x71Logo" />
+    <icon src="resources/windows/icon/Square150x150Logo.png" target="Square150x150Logo" />
+    <icon src="resources/windows/icon/Square310x310Logo.png" target="Square310x310Logo" />
+    <icon src="resources/windows/icon/widelogo.scale-180.png" target="Wide310x150Logo" />
+
+    <splash src="resources/windows/splash/splashscreen.png" target="SplashScreen"/>
+    <splash src="resources/windows/splash/splashscreen.png" target="SplashScreenPhone"/>
+  </platform>
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -78,6 +94,9 @@
   <preference name="SplashShowOnlyFirstTime" value="false"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
+
+  <preference name="windows-target-version" value="10.0" />
+
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
