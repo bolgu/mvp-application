@@ -73,7 +73,7 @@
   <platform name="windows">
     <icon src="resources/windows/icon/storelogo.png" target="StoreLogo" />
     <icon src="resources/windows/icon/smalllogo.png" target="Square30x30Logo" />
-    <icon src="resources/windows/icon/Square70x70Logo.png" target="Square44x44Logo" />
+    <icon src="resources/windows/icon/Square44x44Logo.png" target="Square44x44Logo" />
     <icon src="resources/windows/icon/Square70x70Logo.png" target="Square70x70Logo" />
     <icon src="resources/windows/icon/Square71x71Logo.png" target="Square71x71Logo" />
     <icon src="resources/windows/icon/Square150x150Logo.png" target="Square150x150Logo" />
