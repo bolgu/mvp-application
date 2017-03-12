@@ -12,16 +12,16 @@
 
     <button ion-item >
       <ion-avatar item-left>
-        <img style="width: 50px; length: 50px" src="{{contextPath}}/renderLogo?id={{item.publisher.id}}"
+        <img style="width: 80px; height: 30px; border-radius: 0%;" src="{{contextPath}}/renderLogo?id={{item.publisher.id}}"
              alt="{{item.publisher.name}}"
              class="img-responsive">
       </ion-avatar>
-      <h2>{{item.title}}</h2>
+      <p>{{item.title}}</p>
       <p>{{item.dateCreated}}</p>
     </button>
 
     <ion-card-content>
-      <p>{{item.description}}</p>
+      <div [innerHTML]="item.description"></div>
 
       <ion-grid class="post-actions">
         <ion-row>
