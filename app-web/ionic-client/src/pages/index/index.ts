@@ -12,7 +12,7 @@ import {GlobalVariable} from "../../app/global";
 export class IndexPage {
 
   LOGIN_URL: string = GlobalVariable.BASE_API_URL + "/api/login";
-  SIGNUP_URL: string = GlobalVariable.BASE_API_URL + "/api/signup";
+  SIGNUP_URL: string = GlobalVariable.BASE_API_URL + "/api/v1.0/signup";
 
   auth: AuthService;
   // When the page loads, we want the Login segment to be selected
@@ -20,6 +20,7 @@ export class IndexPage {
   // We need to set the content type for the server
   contentHeader: Headers = new Headers({"Content-Type": "application/json"});
   error: string;
+  success: string;
   jwtHelper: JwtHelper = new JwtHelper();
   user: string;
   loginCreds: any = {}
@@ -41,9 +42,13 @@ export class IndexPage {
       this.http.post(this.LOGIN_URL, JSON.stringify(credentials), { headers: this.contentHeader })
         .map(res => res.json())
         .subscribe(
-          data => this.authSuccess(data.access_token),
+          data => {
+            this.error = ""
+            this.authSuccess(data.access_token);
+          },
           err => {
             console.log(err)
+            this.success = ""
             if(err.status == 401) {
               this.error = "Invalid password and/or username.";
             }
@@ -59,14 +64,19 @@ export class IndexPage {
     this.http.post(this.SIGNUP_URL, JSON.stringify(credentials), { headers: this.contentHeader })
       .map(res => res.json())
       .subscribe(
-        data => this.authSuccess(data.access_token),
+        data => {
+          this.error = "";
+          this.success = data.message;
+          console.log(data);
+        },
         err => {
+          this.success = ""
           console.log(err)
           if(err.status == 401) {
             this.error = "Invalid password and/or username.";
           }
           if(err.status == 400) {
-            this.error = "Invalid call to the server.";
+            this.error = err._body;
           }
         }
       );

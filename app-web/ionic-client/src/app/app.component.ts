@@ -4,6 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { IndexPage } from '../pages/index/index';
 import { JobsPage } from '../pages/jobs/jobs';
+import {AuthService} from "../providers/auth";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class JobsBoardApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
+
     this.pages = [
       { title: 'Home', component: IndexPage},
       { title: 'Jobs List', component: JobsPage}

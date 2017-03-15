@@ -18,6 +18,8 @@ class UrlMappings {
         "/api/v1.0/jobs"(controller: "job", action: "listAll")
         "/api/v1.0/featuredJobs"(controller: "job", action: "listFeatured")
 
+        "/api/v1.0/signup"(controller: "application", action: "register")
+
 
         "500"(view: '/error')
         "404"(view: '/notFound')

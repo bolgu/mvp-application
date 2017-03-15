@@ -3,7 +3,8 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Jobs List</ion-title>
+    <ion-title *ngIf="!auth.authenticated()">Featured Jobs</ion-title>
+    <ion-title *ngIf="auth.authenticated()">Jobs List</ion-title>
   </ion-navbar>
 </ion-header>
 
