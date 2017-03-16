@@ -17,10 +17,14 @@ export class JobsPage {
   items: any;
   contextPath: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public jobsData: JobsData) {
+  auth: AuthService;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public jobsData: JobsData ) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
     this.contextPath = GlobalVariable.BASE_API_URL
+
+    this.auth = AuthService;
 
     if(AuthService.authenticated()) {
       this.listJobs()
