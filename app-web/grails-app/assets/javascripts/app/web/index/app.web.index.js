@@ -36,6 +36,10 @@ function config($stateProvider, $urlRouterProvider) {
             url: "/faq",
             templateUrl: "/app/web/index/faq.html"
         })
+        .state('privacy', {
+            url: "/privacy",
+            templateUrl: "/app/web/index/privacy.html"
+        })
         .state('about', {
             url: "/about",
             templateUrl: "/app/web/index/about.html"

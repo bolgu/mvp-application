@@ -42,7 +42,8 @@ class ApplicationController implements PluginManagerAware {
         } else {
             user.save(flush: true)
             def roleUser = Role.findByAuthority('ROLE_CUSTOMER')
-            UserRole.create user, roleUser
+            def userRole = new UserRole(user: user, role: roleUser)
+            userRole.save(flush: true, failOnError: false)
             return render(status: 200, text: [message: 'Your account was created. Please login!'] as JSON)
         }
     }

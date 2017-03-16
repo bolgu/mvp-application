@@ -118,6 +118,7 @@
                             <li><a href="/">Home</a></li>
                             <li><a href="/#jobs">Jobs Listing</a></li>
                             <li><a href="/#about">About</a></li>
+                            <li><a href="/#privacy">Privacy Policy</a></li>
                             <li><a href="/#contact">Contact</a></li>
                             <li><a href="/#faq">FAQ</a></li>
                         </ul>
@@ -125,7 +126,7 @@
                     <div class="col-md-4 col-sm-6">
                         <h4>Our office</h4>
                         <h5>Bucharest</h5>
-                        <p> Cristescu Dima<br />nr. 7<br />mobile: 0040743163039</p>
+                        <p> Pake Protopopescu<br />nr. 7<br />mobile: 00407431630</p>
                     </div>
                 </div>
                 <div class="row">
@@ -160,7 +161,6 @@
                         <p>&copy;2017 ItJobsBoard.EU</p>
                     </div>
                     <div class="col-md-6">
-                        <p class="credit pull-right">Sample for <a href="https://grailsthreebook.com">Grails 3 Book</a></p>
                     </div>
                 </div>
             </div>
