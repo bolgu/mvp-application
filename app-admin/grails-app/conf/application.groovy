@@ -18,6 +18,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/index',          access: ['ROLE_ADMIN', 'ROLE_OPERATOR']],
 	[pattern: '/index.gsp',      access: ['ROLE_ADMIN', 'ROLE_OPERATOR']],
 	[pattern: '/securityInfo/*', access: ['ROLE_ADMIN']],
+
+	[pattern: '/quartz/**', 	 access: ['ROLE_ADMIN']],
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
@@ -45,6 +47,19 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 environments {
 	development {
 		grails.plugin.fields.disableLookupCache = true
+	}
+}
+
+// http://grails-plugins.github.io/grails-quartz/guide/configuration.html
+quartz {
+	autoStartup = true
+	jdbcStore = false
+}
+environments {
+	test {
+		quartz {
+			autoStartup = false
+		}
 	}
 }
 

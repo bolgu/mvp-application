@@ -16,11 +16,12 @@ class Publisher {
     Date lastUpdated
 
     static constraints = {
-        name nullable: false, blank: false
+        name nullable: false, blank: false, unique: true
         url nullable: false, blank: false
-        contactEmail nullable: false, blank: false, email: true
+        twitterId nullable: true, blank: true
+        contactEmail nullable: true, blank: true, email: true
         location nullable: false, blank: false
-        logo size: 0..1024 * 1024 * 1, maxSize: 1024 * 1024 * 1, nullable: false // 1M
+        logo size: 0..1024 * 1024 * 1, maxSize: 1024 * 1024 * 1, nullable: true // 1M
         logoBase64 nullable: true, blank: true
     }
 

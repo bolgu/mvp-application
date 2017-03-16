@@ -17,7 +17,11 @@
                 </g:if>
                 <g:else>
                     <g:if test="${p.getType() == 'class [B'}">
-                        <td><g:img style="width: 50px; length: 50px" uri="data:img/png;base64,${bean.logo.encodeBase64()}"/></td>
+                        <td>
+                            <g:if test="${bean.logo}">
+                                <g:img style="width: 50px; length: 50px" uri="data:img/png;base64,${bean.logo.encodeBase64()}"/>
+                            </g:if>
+                        </td>
                     </g:if>
                     <g:else>
                         <td><f:display bean="${bean}" property="${p.name}"  displayStyle="${displayStyle?:'table'}" /></td>

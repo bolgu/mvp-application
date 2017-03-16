@@ -8,7 +8,7 @@ class Tag {
     Date lastUpdated
 
     static constraints = {
-        name nullable: false, blank: false
+        name nullable: false, blank: false, unique: true
     }
 
     static mapping = {

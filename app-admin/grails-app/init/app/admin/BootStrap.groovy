@@ -8,10 +8,9 @@ import app.admin.security.Role
 import app.admin.security.User
 import app.admin.security.UserRole
 
-import javax.imageio.ImageIO
-import java.awt.image.BufferedImage
-
 class BootStrap {
+
+    def utilityService
 
     def init = { servletContext ->
 
@@ -71,7 +70,7 @@ class BootStrap {
 
     def populateTestPublishers() {
         if(Publisher.count() == 0) {
-            def logo = uriToImage("https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png")
+            def logo = utilityService.uriToImage("https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png")
             def publisher = new Publisher(
                  name: "Github",
                  url: "http://jobs.github.com",
@@ -82,7 +81,7 @@ class BootStrap {
             )
             publisher.save(flash: true, failOnError: true)
 
-            logo = uriToImage("https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/se/se-icon.png")
+            logo = utilityService.uriToImage("https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/se/se-icon.png")
             publisher = new Publisher(
                     name: "Stackoverflow",
                     url: "http://stackoverflow.com/jobs",
@@ -118,22 +117,6 @@ class BootStrap {
             )
             job.save(flash: true, failOnError: true)
         }
-    }
-
-    def uriToImage(String uri) {
-        URL url = new URL(uri);
-
-        // read image direct from url
-        BufferedImage image = ImageIO.read(url);
-
-        // write image to outputstream
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageIO.write(image, "png", baos);
-        baos.flush();
-
-        // get bytes
-        byte[] imageBytes = baos.toByteArray();
-        return imageBytes
     }
 
     def destroy = {

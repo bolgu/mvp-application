@@ -70,9 +70,9 @@
                 </sec:ifAllGranted>
             </p>
 
-            <div><s:top type="publishers"/></div>
-            <div><s:top type="tags"/></div>
-            <div><s:top type="types"/></div>
+            %{--<div><s:top type="publishers"/></div>--}%
+            %{--<div><s:top type="tags"/></div>--}%
+            %{--<div><s:top type="types"/></div>--}%
 
             <p>
                 Below is a list of controllers that are currently deployed in
