@@ -63,3 +63,11 @@ environments {
 	}
 }
 
+// microservice config
+
+grails.microservice.customer.config = [
+	customerId: "43356",
+	apiKey: "AKIAIOSFODNN7EXAMPLE",
+	apiSecret: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+]
+

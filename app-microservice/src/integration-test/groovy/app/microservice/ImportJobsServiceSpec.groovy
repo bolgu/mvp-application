@@ -5,7 +5,7 @@ import grails.transaction.Rollback
 import spock.lang.Specification
 
 @Integration
-//@Rollback
+@Rollback
 class ImportJobsServiceSpec extends Specification {
 
     def importJobsService
@@ -21,8 +21,7 @@ class ImportJobsServiceSpec extends Specification {
     void "test GitHub Jobs import"() {
 
         when:"import the jobs from GitHub"
-            importResponse = importJobsService.importEuropeanJobsFromGitHub()
-
+            importResponse = importJobsService.importJobs()
         then:"the import query was succesefull executed"
             importResponse.statusCode == 200
         and:"jobs counter is greater than 1"
