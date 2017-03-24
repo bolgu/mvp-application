@@ -57,6 +57,7 @@ class ImportGitHubJobsService {
         def newPublisher = new Publisher(
                 name: entry.company,
                 logo: logo,
+                logoUrl: entry.company_logo,
                 url: entry.company_url,
                 location: entry.location
         )
@@ -64,7 +65,7 @@ class ImportGitHubJobsService {
         try {
             if (!newPublisher.save(failOnError: true, validate: true, flush: true)) {
                 newPublisher.errors.allErrors.each {
-                    log.debug it
+                    log.debug it.toString()
                 }
             }
         } catch (e) {
@@ -86,25 +87,28 @@ class ImportGitHubJobsService {
                 type: Type.findByName(entry.type)
         )
 
-        def tagNames = entry.title.split()
-        def newTag
-        tagNames.each { tagName ->
-            try {
-                newTag = new Tag(name: tagName)
-                newTag.save(failOnError: true)
-            } catch (e) {
-                log.error("Error in saving tag: ", e)
-                def existingTag = Tag.findByName(tagName)
-                if (existingTag) {
-                    newTag = existingTag
-                }
-            }
-            newJob.addToTags(newTag)
-        }
+        // save tags
+//        def tagNames = entry.title.split()
+//        def newTag
+//        tagNames.each { tagName ->
+//            try {
+//                newTag = new Tag(name: tagName)
+//                newTag.save(failOnError: true)
+//            } catch (e) {
+//                newTag.errors.allErrors.each {
+//                    log.debug it.toString()
+//                }
+//                def existingTag = Tag.findByName(tagName)
+//                if (existingTag) {
+//                    newTag = existingTag
+//                }
+//            }
+//            newJob.addToTags(newTag)
+//        }
 
         if (!newJob.save(failOnError: true, validate: true, flush: true)) {
             newJob.errors.allErrors.each {
-                log.debug it
+                log.debug it.toString()
             }
         }
 

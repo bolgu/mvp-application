@@ -1,13 +1,12 @@
 package app.admin
 
-import grails.transaction.Transactional
-
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 import java.security.InvalidKeyException
 
-@Transactional
 class SecurityService {
+
+    def transactional = false
 
     def hmacSha256(String secretKey, String data) {
         try {

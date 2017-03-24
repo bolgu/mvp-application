@@ -1,9 +1,8 @@
 package app.microservice
 
+import app.admin.jobsboard.Job
+import app.admin.jobsboard.Publisher
 import grails.transaction.Transactional
-import reactor.bus.Event
-import reactor.spring.context.annotation.Consumer
-import reactor.spring.context.annotation.Selector
 
 @Transactional
 class ImportJobsService {
@@ -12,5 +11,10 @@ class ImportJobsService {
 
     def importJobs() {
         importGitHubJobsService.importEuropeanJobsFromGitHub()
+    }
+
+    def deltaJobs(Date time) {
+        return [jobs: Job.findAllByDateCreatedBetween(time - 1, time),
+                publishers: Publisher.findAllByDateCreatedBetween(time - 1, time)]
     }
 }

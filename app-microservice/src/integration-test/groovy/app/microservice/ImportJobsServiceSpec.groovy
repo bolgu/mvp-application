@@ -21,7 +21,7 @@ class ImportJobsServiceSpec extends Specification {
     void "test GitHub Jobs import"() {
 
         when:"import the jobs from GitHub"
-            importResponse = importJobsService.importJobs()
+            importResponse = importJobsService.startJobsImport()
         then:"the import query was succesefull executed"
             importResponse.statusCode == 200
         and:"jobs counter is greater than 1"

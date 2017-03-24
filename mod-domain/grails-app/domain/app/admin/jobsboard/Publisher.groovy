@@ -6,6 +6,7 @@ class Publisher {
 
     byte[] logo
     String logoBase64
+    String logoUrl
     String url
     String twitterId
     String contactEmail
@@ -23,6 +24,7 @@ class Publisher {
         location nullable: false, blank: false
         logo size: 0..1024 * 1024 * 1, maxSize: 1024 * 1024 * 1, nullable: true // 1M
         logoBase64 nullable: true, blank: true
+        logoUrl nullable: true, blank: true
     }
 
     static mapping = {

@@ -18,8 +18,8 @@ class BootStrap {
         populateTypes()
         populateDefaultTags()
 
-        populateTestPublishers()
-        populateTestJobs()
+//        populateTestPublishers()
+//        populateTestJobs()
     }
 
     def populateUsers() {

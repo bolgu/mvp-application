@@ -32,7 +32,6 @@ class RefreshBoardJob {
             def response = client.get(path:'/api/v1.0/jobsImports',
                     query:[
                             location:'europe',
-                            active: true,
 
                             nonce: nonce,
                             apiKey: apiKey,

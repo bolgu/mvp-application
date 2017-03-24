@@ -3,12 +3,11 @@ package app.microservice
 import grails.artefact.Interceptor
 import grails.converters.JSON
 
-
 class SecurityInterceptor {
 
     int order = Interceptor.HIGHEST_PRECEDENCE
-
     public static final String API_URI = "/api/v1.0/**"
+
     def securityService
 
     SecurityInterceptor() {
@@ -19,10 +18,10 @@ class SecurityInterceptor {
 
         def nonce = params.nonce
         def apiKey = params.apiKey
-        def signature = params.signature
+        def clientSignature = params.signature
 
         // Parameters were not posted in API request
-        if(!nonce || !apiKey || !signature) {
+        if(!nonce || !apiKey || !clientSignature) {
             render( status: 400, contentType: "application/json",
                     [code: "ERR_001", message: "Missing key, signature and nonce parameters"] as JSON)
             return false
@@ -48,9 +47,9 @@ class SecurityInterceptor {
         }
 
         def message = nonce + customerId + apiKey
-        def testSignature = securityService.hmacSha256(customerConfig.apiSecret, message)
+        def serverSignature = securityService.hmacSha256(customerConfig.apiSecret, message)
 
-        if(signature == testSignature) {
+        if(clientSignature == serverSignature) {
             customerConfig.nonce = nonce
             customerConfig.save(flush: true)
             return true
